@@ -1,0 +1,25 @@
+<div #map style="width: 100vw; height: 100vh; background-color: red;">
+
+</div>
+
+<div class="floating-range p-2"
+  style="position: fixed; bottom: 20px; left: 20px; z-index: 999; width: 500px; border-radius: 10px; box-shadow: 0px 5px 10px rgba(0,0,0,0.1); background-color: white;">
+
+  <div class="floating-content" style="display: flex; align-items: center;">
+
+    <button (click)="zoomOut()" class="btn btn-primary">-</button>
+
+    <input #zoomInput (input)="zoomChanged(zoomInput.value)" type="range" class="form-range px-2" min="2" max="18"
+      [value]="zoom">
+
+    <button (click)="zoomIn()" class="btn btn-primary">+</button>
+
+  </div>
+
+  <span class="form-label">
+    Zoom: {{zoom | number:'2.2-2'}}
+    <br>
+    Lng,Lat {{currentLngLat.lng | number:'2.6-6'}}, {{currentLngLat.lat | number:'2.6-6'}}
+  </span>
+
+</div>
